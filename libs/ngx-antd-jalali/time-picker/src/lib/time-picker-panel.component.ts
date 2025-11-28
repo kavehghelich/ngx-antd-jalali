@@ -27,7 +27,7 @@ import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { reqAnimFrame } from 'ng-zorro-antd/core/polyfill';
+import { requestAnimationFrame } from 'ng-zorro-antd/core/polyfill';
 import { BooleanInput } from 'ng-zorro-antd/core/types';
 import { InputBoolean, isNotNil } from 'ng-zorro-antd/core/util';
 import { DateHelperService, NzI18nModule } from 'ngx-antd-jalali/i18n';
@@ -449,7 +449,7 @@ export class NzTimePickerPanelComponent implements ControlValueAccessor, OnInit,
     const perTick = (difference / duration) * 10;
 
     this.ngZone.runOutsideAngular(() => {
-      reqAnimFrame(() => {
+      requestAnimationFrame(() => {
         element.scrollTop = element.scrollTop + perTick;
         if (element.scrollTop === to) {
           return;
